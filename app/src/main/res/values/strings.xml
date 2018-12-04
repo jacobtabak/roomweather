@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NavWeather</string>
+    <string name="my_locations">My Locations</string>
+    <string name="no_locations">Get started by tapping the \"Add\" button below to add some locations!</string>
+</resources>
