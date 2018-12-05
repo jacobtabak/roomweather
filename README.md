@@ -1,5 +1,5 @@
 # roomweather
-POC of weather app using Room persistence
+POC of weather app using some new things I've never tried before, including room, androidx, and the android support library for dagger.
 
 In order to run this app you will need an API key from https://openweathermap.org
 
