@@ -1,4 +1,4 @@
-package me.tabak.jacob.roomweather.model
+package me.tabak.jacob.roomweather.entity
 
 import android.os.Parcelable
 import androidx.room.Entity

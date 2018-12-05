@@ -5,8 +5,11 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import me.tabak.jacob.roomweather.model.WeatherLocation
+import me.tabak.jacob.roomweather.entity.WeatherLocation
 
+/**
+ * Data access methods for the weather location table
+ */
 @Dao
 interface WeatherLocationDao {
     @Query("SELECT * FROM WeatherLocation")

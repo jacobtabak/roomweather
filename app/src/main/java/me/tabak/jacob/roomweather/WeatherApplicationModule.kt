@@ -12,8 +12,11 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * Module that provides application-scoped dependencies
+ */
 @Module
-class WeatherApplicationModule(val application: Application) {
+class WeatherApplicationModule(private val application: Application) {
     @Provides fun provideWeatherDatabase(): WeatherDatabase = Room
         .databaseBuilder(
             application,

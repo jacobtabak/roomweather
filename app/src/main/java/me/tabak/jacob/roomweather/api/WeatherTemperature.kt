@@ -4,6 +4,9 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
+/**
+ * Contains temperature data in the weather response
+ */
 @Parcelize
 data class WeatherTemperature(
     @SerializedName("temp") val temperature: Float,

@@ -15,9 +15,13 @@ import dagger.android.AndroidInjector
 import dagger.android.ContributesAndroidInjector
 import me.tabak.jacob.roomweather.R
 import me.tabak.jacob.roomweather.databinding.ActivityDetailBinding
-import me.tabak.jacob.roomweather.model.WeatherLocation
+import me.tabak.jacob.roomweather.entity.WeatherLocation
 import javax.inject.Inject
 
+/**
+ * Activity that displays weather detail for a specific location
+ * UI logic lives in [DetailActivityPresenter]
+ */
 class DetailActivity : AppCompatActivity() {
     lateinit var binding: ActivityDetailBinding
     @Inject lateinit var presenter: DetailActivityPresenter
@@ -44,7 +48,7 @@ class DetailActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return if (item.itemId == R.id.delete) {
-            presenter.deleteLocation()
+            presenter.deleteLocationAndFinish()
             true
         } else {
             super.onOptionsItemSelected(item)

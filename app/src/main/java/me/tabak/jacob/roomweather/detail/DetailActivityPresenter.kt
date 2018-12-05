@@ -6,23 +6,34 @@ import androidx.databinding.ObservableBoolean
 import me.tabak.jacob.roomweather.api.WeatherApi
 import me.tabak.jacob.roomweather.api.WeatherResponse
 import me.tabak.jacob.roomweather.data.WeatherDatabase
-import me.tabak.jacob.roomweather.model.WeatherLocation
+import me.tabak.jacob.roomweather.entity.WeatherLocation
 import org.jetbrains.anko.doAsync
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
+/**
+ * Handles UI logic and interactions for [DetailActivity] via databinding.
+ * - Receives lifecycle events from the activity
+ * - Responsible for loading data, handling errors and retries
+ * - Formats data from the API and models in a user-friendly format
+ */
 class DetailActivityPresenter @Inject constructor(
     private val activity: DetailActivity,
     private val api: WeatherApi,
     private val database: WeatherDatabase
 ) : BaseObservable(), Callback<WeatherResponse> {
     var location: WeatherLocation = DetailActivity.getLocation(activity.intent)
-    var isError = ObservableBoolean(false)
-    var isLoading = ObservableBoolean(true)
 
-    var response: WeatherResponse? = null
+    var isError = ObservableBoolean(false) // controls visibility of error view
+    var isLoading = ObservableBoolean(true) // controls visibility of loading view
+
+    /**
+     * Contains the response from the weather API, if one has been received.
+     * Custom setter notifies the UI of changes.
+     */
+    private var response: WeatherResponse? = null
         set(value) {
             field = value
             notifyChange()
@@ -55,7 +66,7 @@ class DetailActivityPresenter @Inject constructor(
         }
     }
 
-    fun deleteLocation() {
+    fun deleteLocationAndFinish() {
         doAsync {
             database.weatherLocationDao().delete(location)
             activity.finish()

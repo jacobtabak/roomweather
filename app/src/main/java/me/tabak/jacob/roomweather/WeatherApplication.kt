@@ -7,6 +7,9 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import javax.inject.Inject
 
+/**
+ * Application class that sets up the dagger graph
+ */
 class WeatherApplication : Application(), HasActivityInjector {
     @Inject lateinit var dispatchingActivityInjector: DispatchingAndroidInjector<Activity>
     private lateinit var component: WeatherApplicationComponent

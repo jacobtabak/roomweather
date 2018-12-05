@@ -14,6 +14,10 @@ import me.tabak.jacob.roomweather.R
 import me.tabak.jacob.roomweather.databinding.ActivityAddBinding
 import javax.inject.Inject
 
+/**
+ * Activity that allows a user to add a new location.
+ * Most of the UI is managed in [AddActivityPresenter] via databinding.
+ */
 class AddActivity : AppCompatActivity() {
     internal lateinit var binding: ActivityAddBinding
     @Inject lateinit var presenter: AddActivityPresenter

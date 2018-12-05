@@ -3,10 +3,13 @@ package me.tabak.jacob.roomweather.add
 import android.widget.TextView
 import me.tabak.jacob.roomweather.R
 import me.tabak.jacob.roomweather.data.WeatherDatabase
-import me.tabak.jacob.roomweather.model.WeatherLocation
+import me.tabak.jacob.roomweather.entity.WeatherLocation
 import org.jetbrains.anko.doAsync
 import javax.inject.Inject
 
+/**
+ * Manages the UI for [AddActivity] via databinding
+ */
 class AddActivityPresenter @Inject constructor(
     private val activity: AddActivity,
     private val database: WeatherDatabase

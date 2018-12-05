@@ -12,6 +12,10 @@ import me.tabak.jacob.roomweather.R
 import me.tabak.jacob.roomweather.databinding.ActivityLocationBinding
 import javax.inject.Inject
 
+/**
+ * Activity that displays the user's list of locations that they have added.
+ * The UI is managed by [LocationActivityPresenter] via databinding.
+ */
 class LocationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLocationBinding
     @Inject lateinit var presenter: LocationActivityPresenter

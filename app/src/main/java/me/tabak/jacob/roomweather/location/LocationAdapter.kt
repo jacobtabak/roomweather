@@ -7,9 +7,12 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import me.tabak.jacob.roomweather.databinding.ItemLocationBinding
 import me.tabak.jacob.roomweather.detail.DetailActivity
-import me.tabak.jacob.roomweather.model.WeatherLocation
+import me.tabak.jacob.roomweather.entity.WeatherLocation
 import me.tabak.jacob.roomweather.util.DataBoundViewHolder
 
+/**
+ * Adapter that displays a list of locations that the user has added
+ */
 class LocationAdapter :
     RecyclerView.Adapter<DataBoundViewHolder<ItemLocationBinding>>(),
     Observer<List<WeatherLocation>> {
