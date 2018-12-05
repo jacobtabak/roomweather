@@ -1,11 +1,13 @@
 package me.tabak.jacob.roomweather.model
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
-@Entity
+@Parcelize @Entity
 data class WeatherLocation(
-    @PrimaryKey val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int? = null,
     val name: String,
-    val zipCode: Int
-)
+    val zipCode: String
+) : Parcelable

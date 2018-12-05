@@ -30,20 +30,22 @@
                 android:layout_gravity="center"
                 android:textSize="18sp"
                 android:gravity="center"
+                app:visible="@{presenter.adapter.isEmpty()}"
                 />
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:listitem="@layout/item_location"
-                >
-
-            </androidx.recyclerview.widget.RecyclerView>
+                android:adapter="@{presenter.adapter}"
+                app:layoutManager="@{presenter.layoutManager}"
+                />
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_gravity="bottom|end"
                 android:layout_margin="16dp"
                 android:src="@drawable/ic_add_24dp"
+                android:onClick="@{() -> presenter.addClicked()}"
                 />
         </FrameLayout>
     </LinearLayout>

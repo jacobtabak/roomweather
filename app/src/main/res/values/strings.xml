@@ -2,4 +2,19 @@
     <string name="app_name">NavWeather</string>
     <string name="my_locations">My Locations</string>
     <string name="no_locations">Get started by tapping the \"Add\" button below to add some locations!</string>
+    <string name="location_name">Name of Location</string>
+    <string name="zip_code">Zip Code</string>
+    <string name="add_location">Add Location</string>
+    <string name="name_empty">Name must not be empty</string>
+    <string name="zip_numeric">Zip code must be numeric</string>
+    <string name="zip_five_digits">Zip code must be five digits</string>
+    <string name="city">City: %1$s</string>
+    <string name="current_temp">Current Temperature: %1$s°F</string>
+    <string name="high_temp">High Temperature: %1$s°F</string>
+    <string name="low_temp">Low Temperature: %1$s°F</string>
+    <string name="condition">Current Condition: %1$s</string>
+    <string name="delete_location">Delete Location</string>
+    <string name="location_deleted">Location Deleted</string>
+    <string name="error_loading_data">There was an error retrieving weather data from OpenWeatherMap. Did you remember to add your API key to the local.properties file?</string>
+    <string name="retry">Retry</string>
 </resources>

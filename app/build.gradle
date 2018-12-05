@@ -3,9 +3,9 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
-
 android {
     compileSdkVersion 28
+
     defaultConfig {
         applicationId "me.tabak.jacob.roomweather"
         minSdkVersion 23
@@ -13,16 +13,29 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "OWM_API_KEY", "\"" + getOwmApiKey() + "\""
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     dataBinding {
         enabled = true
     }
+
+    androidExtensions {
+        experimental = true
+    }
+}
+
+def getOwmApiKey() {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    return properties.getProperty("owm.key")
 }
 
 dependencies {
@@ -32,6 +45,11 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-rxjava2:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
+    implementation "org.jetbrains.anko:anko:$anko_version"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.picasso:picasso:$picasso_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
 
     implementation "com.google.dagger:dagger-android:$dagger_version"
     implementation "com.google.dagger:dagger-android-support:$dagger_version"

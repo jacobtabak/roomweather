@@ -2,6 +2,7 @@ package me.tabak.jacob.roomweather.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import me.tabak.jacob.roomweather.model.WeatherLocation
@@ -19,4 +20,7 @@ interface WeatherLocationDao {
 
     @Insert
     fun insert(weatherLocation: WeatherLocation)
+
+    @Delete
+    fun delete(weatherLocation: WeatherLocation)
 }

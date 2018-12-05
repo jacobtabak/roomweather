@@ -4,7 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import me.tabak.jacob.roomweather.model.WeatherLocation
 
-@Database(entities = [WeatherLocation::class], version = 1)
+@Database(entities = [WeatherLocation::class], version = 3)
 abstract class WeatherDatabase : RoomDatabase() {
     abstract fun weatherLocationDao(): WeatherLocationDao
 }

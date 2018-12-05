@@ -2,9 +2,11 @@ package me.tabak.jacob.roomweather.location
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import me.tabak.jacob.roomweather.databinding.ItemLocationBinding
+import me.tabak.jacob.roomweather.detail.DetailActivity
 import me.tabak.jacob.roomweather.model.WeatherLocation
 import me.tabak.jacob.roomweather.util.DataBoundViewHolder
 
@@ -13,9 +15,11 @@ class LocationAdapter :
     Observer<List<WeatherLocation>> {
 
     private var locations: List<WeatherLocation> = emptyList()
+    val isEmpty: ObservableBoolean = ObservableBoolean()
 
     override fun onChanged(locations: List<WeatherLocation>) {
         this.locations = locations
+        isEmpty.set(locations.isEmpty())
         notifyDataSetChanged()
     }
 
@@ -31,6 +35,11 @@ class LocationAdapter :
     override fun getItemCount(): Int = locations.size
 
     override fun onBindViewHolder(holder: DataBoundViewHolder<ItemLocationBinding>, position: Int) {
-        holder.binding.location = locations[position]
+        val location = locations[position]
+        holder.binding.location = location
+        val view = holder.binding.root
+        val context = view.context
+        val intent = DetailActivity.newIntent(context, location)
+        view.setOnClickListener { context.startActivity(intent)}
     }
 }

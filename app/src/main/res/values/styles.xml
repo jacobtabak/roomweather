@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionBarStyle">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
     </style>
 
     <style name="ToolbarStyle">
@@ -13,5 +14,6 @@
         <item name="android:layout_height">?attr/actionBarSize</item>
         <item name="android:background">@color/colorPrimary</item>
         <item name="titleTextColor">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
     </style>
 </resources>
