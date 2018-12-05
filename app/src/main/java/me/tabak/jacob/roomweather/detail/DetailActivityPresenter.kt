@@ -14,9 +14,9 @@ import retrofit2.Response
 import javax.inject.Inject
 
 class DetailActivityPresenter @Inject constructor(
-    val activity: DetailActivity,
-    val api: WeatherApi,
-    val database: WeatherDatabase
+    private val activity: DetailActivity,
+    private val api: WeatherApi,
+    private val database: WeatherDatabase
 ) : BaseObservable(), Callback<WeatherResponse> {
     var location: WeatherLocation = DetailActivity.getLocation(activity.intent)
     var isError = ObservableBoolean(false)
@@ -58,8 +58,8 @@ class DetailActivityPresenter @Inject constructor(
     fun deleteLocation() {
         doAsync {
             database.weatherLocationDao().delete(location)
+            activity.finish()
         }
-        activity.finish()
     }
 
     fun iconUrl() = ICON_PREFIX + response?.conditions?.firstOrNull()?.icon + ICON_SUFFIX
@@ -77,9 +77,9 @@ class DetailActivityPresenter @Inject constructor(
     fun condition() = response?.conditions?.firstOrNull()?.condition
 
     companion object {
-        private const val FLOAT_FORMAT = "%.1f"
-        private const val ICON_PREFIX = "http://openweathermap.org/img/w/"
+        private const val FLOAT_FORMAT = "%.1f" // show the first decimal of a float
+        private const val ICON_PREFIX = "https://openweathermap.org/img/w/"
         private const val ICON_SUFFIX = ".png"
-        private const val ZIP_SUFFIX = ",us"
+        private const val ZIP_SUFFIX = ",us" // zip code needs a country code suffix
     }
 }

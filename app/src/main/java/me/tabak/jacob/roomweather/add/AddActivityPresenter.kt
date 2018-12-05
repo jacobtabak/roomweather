@@ -1,5 +1,6 @@
 package me.tabak.jacob.roomweather.add
 
+import android.widget.TextView
 import me.tabak.jacob.roomweather.R
 import me.tabak.jacob.roomweather.data.WeatherDatabase
 import me.tabak.jacob.roomweather.model.WeatherLocation
@@ -35,8 +36,15 @@ class AddActivityPresenter @Inject constructor(
             val weatherLocation = WeatherLocation(name = nameText, zipCode = zipCodeText)
             doAsync {
                 database.weatherLocationDao().insert(weatherLocation)
+                activity.finish()
             }
-            activity.finish()
+        }
+    }
+
+    fun actionListener(): TextView.OnEditorActionListener {
+        return TextView.OnEditorActionListener { _, _, _ ->
+            addClicked()
+            true
         }
     }
 }

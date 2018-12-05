@@ -40,8 +40,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/location_name"
+                        android:inputType="textCapWords"
                         android:onTextChanged="@{() -> nameInputLayout.setError((CharSequence) null)}"
-                        />
+                        >
+                        <requestFocus/>
+                    </com.google.android.material.textfield.TextInputEditText>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/zipCodeInputLayout"
@@ -52,7 +55,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/zip_code"
+                        android:inputType="number"
                         android:onTextChanged="@{() -> zipCodeInputLayout.setError((CharSequence) null)}"
+                        app:onEditorActionListener="@{presenter.actionListener}"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
                 <Button

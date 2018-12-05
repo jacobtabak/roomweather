@@ -6,8 +6,8 @@ import me.tabak.jacob.roomweather.data.WeatherDatabase
 import javax.inject.Inject
 
 class LocationActivityPresenter @Inject constructor(
-    val activity: LocationActivity,
-    val database: WeatherDatabase
+    private val activity: LocationActivity,
+    private val database: WeatherDatabase
 ) {
     val adapter = LocationAdapter()
     val layoutManager = LinearLayoutManager(activity)

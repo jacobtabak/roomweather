@@ -43,6 +43,6 @@ class WeatherApplicationModule(val application: Application) {
 
     companion object {
         private const val DATABASE_NAME = "weather_database"
-        private const val WEATHER_API_URL = "http://api.openweathermap.org/data/2.5/"
+        private const val WEATHER_API_URL = "https://api.openweathermap.org/data/2.5/"
     }
 }
