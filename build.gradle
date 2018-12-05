@@ -26,6 +26,7 @@ ext {
     material_version = '1.1.0-alpha01'
     appcompat_version = '1.0.2'
     room_version = '2.1.0-alpha03'
+    dagger_version = '2.16'
 }
 
 task clean(type: Delete) {

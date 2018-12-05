@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:name="me.tabak.jacob.roomweather.WeatherApplication"
         tools:ignore="GoogleAppIndexingWarning"
         >
         <activity android:name="me.tabak.jacob.roomweather.location.LocationActivity">
