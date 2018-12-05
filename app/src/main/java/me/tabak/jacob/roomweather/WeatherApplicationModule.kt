@@ -4,9 +4,9 @@ import android.app.Application
 import androidx.room.Room
 import dagger.Module
 import dagger.Provides
+import me.tabak.jacob.roomweather.api.OwmApiKeyInterceptor
 import me.tabak.jacob.roomweather.api.WeatherApi
 import me.tabak.jacob.roomweather.data.WeatherDatabase
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
