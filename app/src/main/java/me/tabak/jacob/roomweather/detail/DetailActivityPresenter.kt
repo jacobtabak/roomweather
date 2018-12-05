@@ -1,16 +1,13 @@
 package me.tabak.jacob.roomweather.detail
 
 import android.util.Log
-import android.widget.Toast
 import androidx.databinding.BaseObservable
 import androidx.databinding.ObservableBoolean
-import me.tabak.jacob.roomweather.R
 import me.tabak.jacob.roomweather.api.WeatherApi
 import me.tabak.jacob.roomweather.api.WeatherResponse
 import me.tabak.jacob.roomweather.data.WeatherDatabase
 import me.tabak.jacob.roomweather.model.WeatherLocation
 import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.toast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

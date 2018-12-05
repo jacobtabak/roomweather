@@ -30,7 +30,7 @@ class AddActivity : AppCompatActivity() {
     @Subcomponent
     interface AddActivitySubcomponent : AndroidInjector<AddActivity> {
         @Subcomponent.Builder
-        abstract class Builder: AndroidInjector.Builder<AddActivity>()
+        abstract class Builder : AndroidInjector.Builder<AddActivity>()
     }
 
     @Module(subcomponents = [AddActivitySubcomponent::class])

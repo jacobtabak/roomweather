@@ -21,7 +21,7 @@ import javax.inject.Inject
 class DetailActivity : AppCompatActivity() {
     lateinit var binding: ActivityDetailBinding
     @Inject lateinit var presenter: DetailActivityPresenter
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
@@ -54,7 +54,7 @@ class DetailActivity : AppCompatActivity() {
     @Subcomponent
     interface DetailActivitySubcomponent : AndroidInjector<DetailActivity> {
         @Subcomponent.Builder
-        abstract class Builder: AndroidInjector.Builder<DetailActivity>()
+        abstract class Builder : AndroidInjector.Builder<DetailActivity>()
     }
 
     @Module(subcomponents = [DetailActivitySubcomponent::class])

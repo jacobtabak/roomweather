@@ -40,6 +40,6 @@ class LocationAdapter :
         val view = holder.binding.root
         val context = view.context
         val intent = DetailActivity.newIntent(context, location)
-        view.setOnClickListener { context.startActivity(intent)}
+        view.setOnClickListener { context.startActivity(intent) }
     }
 }
